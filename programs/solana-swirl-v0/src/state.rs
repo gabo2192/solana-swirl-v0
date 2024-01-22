@@ -9,6 +9,9 @@ pub const STAKE_POOL_SIZE: usize = 8 + 32 + 32 + 1 + 8 + 32 + 8 + 1 + 1 + 32 + 1
 pub const VAULT_SEED: &str = "vault";
 pub const VAULT_AUTH_SEED: &str = "vault_authority";
 
+pub const STAKE_ENTRY_SEED: &str = "stake_entry";
+pub const STAKE_ENTRY_SIZE: usize = 8 + 32 + 1 + 8 + 8 + 16;
+
 pub static PROGRAM_AUTHORITY: Pubkey = pubkey!("9MNHTJJ1wd6uQrZfXk46T24qcWNZYpYfwZKk6zho4poV");
 
 #[account]
@@ -24,4 +27,13 @@ pub struct PoolState {
     pub vault_authority: Pubkey,
     pub distribution_rate: u128,
     pub user_deposit_amt: u64
+}
+
+#[account]
+pub struct StakeEntry {
+    pub user: Pubkey,
+    pub bump: u8,
+    pub balance: u64,
+    pub last_staked: i64,
+    pub initial_distribution_rate: u128
 }

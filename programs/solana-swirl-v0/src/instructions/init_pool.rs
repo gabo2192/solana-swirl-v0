@@ -1,10 +1,10 @@
 use {
     anchor_lang::prelude::*,
     crate::{state::*, errors::*},
-    anchor_spl::{token::{TokenAccount, Mint, Token}},
+    anchor_spl::token::{TokenAccount, Mint, Token},
 };
 
-pub fn handler(ctx: Context<InitializePool>) -> Result<()> {
+pub fn handler_init_pool(ctx: Context<InitializePool>) -> Result<()> {
 
     // initialize pool state
     let pool_state = &mut ctx.accounts.pool_state;

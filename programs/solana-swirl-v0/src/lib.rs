@@ -10,8 +10,11 @@ declare_id!("8vqgdewQChSQVdnBcYCUftq5RGKFjoandbzMFPJ3n69u");
 pub mod solana_swirl_v0 {
     use super::*;
     pub fn init_pool(ctx: Context<InitializePool>)-> Result<()>{
-        init_pool::handler(ctx)
+        init_pool::handler_init_pool(ctx)
     }
+    pub fn init_stake_entry(ctx: Context<InitEntryCtx>) -> Result<()> {
+        init_stake_entry::handler(ctx)
+}
 }
 
 #[derive(Accounts)]
