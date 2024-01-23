@@ -14,8 +14,12 @@ pub mod solana_swirl_v0 {
     }
     pub fn init_stake_entry(ctx: Context<InitEntryCtx>) -> Result<()> {
         init_stake_entry::handler(ctx)
-}
-}
+    }
+    pub fn stake(ctx: Context<StakeCtx>, amount: u64) -> Result<()> {
+        stake::stake(ctx, amount)
+    }
 
-#[derive(Accounts)]
-pub struct Initialize {}
+    pub fn unstake(ctx: Context<UnstakeCtx>) -> Result<()> {
+        unstake::unstake(ctx)
+    }
+}
